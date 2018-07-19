@@ -1,5 +1,14 @@
 <?php
 
+spl_autoload_register(
+	function($className)
+	{
+		$className = str_replace('\\',DIRECTORY_SEPARATOR,$className);
+		echo ($filename = __DIR__.DIRECTORY_SEPARATOR.$className.'.php')."<br/>";
+		require_once($filename);
+	}
+);
+
 use Human\Human as Human;
 use Human\Leg;
 
