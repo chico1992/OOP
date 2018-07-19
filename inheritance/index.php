@@ -8,7 +8,7 @@ spl_autoload_register(
     }
 );
 
-use Human\Human as Human;
+use Human\Child;
 use Human\Leg;
 
 new Leg();
@@ -17,9 +17,9 @@ $logger1 = Logger::getInstance();
 if (isset($_POST['human'])) {
     $logger1->log('1');
     try {
-        $logger1->log('Trying to create a human');
+        $logger1->log('Trying to create a child');
         echo '<pre>';
-        var_dump(Human::fromArray($_POST['human']));
+        var_dump(Child::fromArray($_POST['human']));
         echo '</pre>';
         $logger1->log('Success');
     } catch (RuntimeException $exception) {
@@ -43,7 +43,8 @@ if (isset($_POST['human'])) {
     	<form method="POST">
     		<fieldset>
         		<input type="text" name="human[name]" placeholder="name">
-        		<input type="number" name="human[age]" placeholder="age">
+                <input type="number" name="human[age]" placeholder="age">
+                <input type="text" name="human[brain]" placeholder="brain">
         		<select name="human[gender]">
         			<option value="male">Male</option>
         			<option value="female">Female</option>
