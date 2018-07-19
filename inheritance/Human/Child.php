@@ -39,7 +39,7 @@ class Child extends Human
     {
         $logger2 = \Logger::getInstance();
         $logger2->log('2');
-        $child = new Human();
+        $child = new Child();
         $child->setAge((int)$definition['age'] ?? '')
             ->setGender($definition['gender'] ?? '')
             ->setName($definition['name'] ?? '')
